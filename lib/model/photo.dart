@@ -9,7 +9,7 @@ class Photo with _$Photo {
   factory Photo({
     required int id,
     required String tags,
-    required String previewUrl,
+    required String previewURL,
   }) = _Photo;
 
   factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
