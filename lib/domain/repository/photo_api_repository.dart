@@ -1,4 +1,4 @@
-import 'package:image_search/model/photo.dart';
+import 'package:image_search/domain/model/photo.dart';
 
 abstract class PhotoApiRepository {
   Future<List<Photo>> fetch(String query);

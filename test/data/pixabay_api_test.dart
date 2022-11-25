@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image_search/data/pixabay_api.dart';
+import 'package:image_search/data/repository/photo_api_repository_impl.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -8,12 +8,12 @@ import 'pixabay_api_test.mocks.dart' as pixabay;
 @GenerateMocks([http.Client])
 void main() {
   test('Pixabay 데이터를 잘 가져와야 한다', () async {
-    final api = PixabayApi();
+    final api = PhotoApiRepositoryImpl();
     //final client = MockClient((request) async => http.Response('Not found', 404));
     final client = pixabay.MockClient();
 
     when(client.get(Uri.parse(
-            '${PixabayApi.baseUrl}?key=${PixabayApi.key}&q=iphone&image_type=photo')))
+            '${PhotoApiRepositoryImpl.baseUrl}?key=${PhotoApiRepositoryImpl.key}&q=iphone&image_type=photo')))
         .thenAnswer((_) async => http.Response(fakeJsonBody, 200));
 
     final result = await api.fetch('iphone', client: client);
@@ -21,7 +21,7 @@ void main() {
     expect(result.first.id, 2295434);
 
     verify(client.get(Uri.parse(
-        '${PixabayApi.baseUrl}?key=${PixabayApi.key}&q=iphone&image_type=photo')));
+        '${PhotoApiRepositoryImpl.baseUrl}?key=${PhotoApiRepositoryImpl.key}&q=iphone&image_type=photo')));
   });
 }
 

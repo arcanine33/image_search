@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:image_search/ui/home_view_model.dart';
-import 'package:image_search/ui/widget/photo_widget.dart';
+import 'package:image_search/presentation/home/components/photo_widget.dart';
+import 'package:image_search/presentation/home/home_view_model.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
