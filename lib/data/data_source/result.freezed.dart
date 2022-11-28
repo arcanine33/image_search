@@ -37,19 +37,19 @@ mixin _$Result<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Sucess<T> value) success,
+    required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Sucess<T> value)? success,
+    TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Sucess<T> value)? success,
+    TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) =>
@@ -74,19 +74,20 @@ class _$ResultCopyWithImpl<T, $Res, $Val extends Result<T>>
 }
 
 /// @nodoc
-abstract class _$$SucessCopyWith<T, $Res> {
-  factory _$$SucessCopyWith(
-          _$Sucess<T> value, $Res Function(_$Sucess<T>) then) =
-      __$$SucessCopyWithImpl<T, $Res>;
+abstract class _$$SuccessCopyWith<T, $Res> {
+  factory _$$SuccessCopyWith(
+          _$Success<T> value, $Res Function(_$Success<T>) then) =
+      __$$SuccessCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$SucessCopyWithImpl<T, $Res>
-    extends _$ResultCopyWithImpl<T, $Res, _$Sucess<T>>
-    implements _$$SucessCopyWith<T, $Res> {
-  __$$SucessCopyWithImpl(_$Sucess<T> _value, $Res Function(_$Sucess<T>) _then)
+class __$$SuccessCopyWithImpl<T, $Res>
+    extends _$ResultCopyWithImpl<T, $Res, _$Success<T>>
+    implements _$$SuccessCopyWith<T, $Res> {
+  __$$SuccessCopyWithImpl(
+      _$Success<T> _value, $Res Function(_$Success<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +95,7 @@ class __$$SucessCopyWithImpl<T, $Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$Sucess<T>(
+    return _then(_$Success<T>(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -105,8 +106,8 @@ class __$$SucessCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$Sucess<T> implements Sucess<T> {
-  const _$Sucess(this.data);
+class _$Success<T> implements Success<T> {
+  const _$Success(this.data);
 
   @override
   final T data;
@@ -120,7 +121,7 @@ class _$Sucess<T> implements Sucess<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Sucess<T> &&
+            other is _$Success<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -131,8 +132,8 @@ class _$Sucess<T> implements Sucess<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SucessCopyWith<T, _$Sucess<T>> get copyWith =>
-      __$$SucessCopyWithImpl<T, _$Sucess<T>>(this, _$identity);
+  _$$SuccessCopyWith<T, _$Success<T>> get copyWith =>
+      __$$SuccessCopyWithImpl<T, _$Success<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -168,7 +169,7 @@ class _$Sucess<T> implements Sucess<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Sucess<T> value) success,
+    required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
     return success(this);
@@ -177,7 +178,7 @@ class _$Sucess<T> implements Sucess<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Sucess<T> value)? success,
+    TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
     return success?.call(this);
@@ -186,7 +187,7 @@ class _$Sucess<T> implements Sucess<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Sucess<T> value)? success,
+    TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -197,12 +198,12 @@ class _$Sucess<T> implements Sucess<T> {
   }
 }
 
-abstract class Sucess<T> implements Result<T> {
-  const factory Sucess(final T data) = _$Sucess<T>;
+abstract class Success<T> implements Result<T> {
+  const factory Success(final T data) = _$Success<T>;
 
   T get data;
   @JsonKey(ignore: true)
-  _$$SucessCopyWith<T, _$Sucess<T>> get copyWith =>
+  _$$SuccessCopyWith<T, _$Success<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -299,7 +300,7 @@ class _$Error<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Sucess<T> value) success,
+    required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
     return error(this);
@@ -308,7 +309,7 @@ class _$Error<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Sucess<T> value)? success,
+    TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
     return error?.call(this);
@@ -317,7 +318,7 @@ class _$Error<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Sucess<T> value)? success,
+    TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
