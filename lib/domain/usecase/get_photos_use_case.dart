@@ -9,7 +9,7 @@ class GetPhotosUseCase{
 
   GetPhotosUseCase(this.repository);
 
-  Future<Result<List<Photo>>> execute(String query) async {
+  Future<Result<List<Photo>>> call(String query) async {
     final result = await repository.fetch(query);
     return result.when(success: (photos) {
       return Result.success(photos.sublist(0, min(3, photos.length)));

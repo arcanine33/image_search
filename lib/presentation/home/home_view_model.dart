@@ -25,7 +25,7 @@ class HomeViewModel with ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
-    final Result<List<Photo>> result = await getPhotosUseCase.execute(query);
+    final Result<List<Photo>> result = await getPhotosUseCase(query);
 
     result.when(
       success: (photos) {
