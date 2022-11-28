@@ -15,10 +15,6 @@ class HomeViewModel with ChangeNotifier {
 
   HomeState get state => _state;
 
- //List<Photo> _photos = [];
-
-  //List<Photo> get photos => _photos;
-
   final _eventController = StreamController<HomeUiEvent>();
   Stream<HomeUiEvent> get eventStream => _eventController.stream;
 
