@@ -16,10 +16,16 @@ class HomeViewModel with ChangeNotifier {
   final _eventController = StreamController<HomeUiEvent>();
   Stream<HomeUiEvent> get eventStream => _eventController.stream;
 
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
   HomeViewModel(this.repository);
 
 
   Future<void> fetch(String query) async {
+    _isLoading = true;
+    notifyListeners();
     final Result<List<Photo>> result = await repository.fetch(query);
     result.when(
       success: (photos) {
@@ -27,8 +33,11 @@ class HomeViewModel with ChangeNotifier {
         notifyListeners();
       },
       error: (message) {
+        _isLoading = true;
         _eventController.add(HomeUiEvent.showSnackBar(message));
       },
     );
+    _isLoading = false;
+    notifyListeners();
   }
 }

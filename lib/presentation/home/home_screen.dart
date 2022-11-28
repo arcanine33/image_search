@@ -67,12 +67,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Consumer<HomeViewModel>(
-            builder: (_, viewModel, child) => Expanded(
-              child: GridView.builder(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: viewModel.photos.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+            builder: (_, viewModel, child) => viewModel.isLoading
+                ? const CircularProgressIndicator()
+                : Expanded(
+                    child: GridView.builder(
+                        padding: const EdgeInsets.all(16),
+                        itemCount: viewModel.photos.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 16),
                   itemBuilder: (context, index) {
