@@ -1,12 +1,16 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_search/domain/model/photo.dart';
 
-class HomeState {
-  final List<Photo> photos;
-  final bool isLoading;
+part 'home_state.freezed.dart';
+part 'home_state.g.dart';
 
-  HomeState(this.photos, this.isLoading);
+@freezed
+class HomeState with _$HomeState {
+  factory HomeState(
+   List<Photo> photos,
+   bool isLoading,
+      ) = _HomeState;
 
-  HomeState copy({List<Photo>? photos, bool? isLoading}) {
-    return HomeState(photos ??= this.photos, isLoading ??= this.isLoading);
-  }
+  factory HomeState.fromJson(Map<String, dynamic> json) =>
+      _$HomeStateFromJson(json);
 }
